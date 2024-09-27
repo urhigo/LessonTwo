@@ -8,17 +8,20 @@ public class Main {
         System.out.println(ticket1.getId());
         System.out.println(ticket1.getTimeCreateTicket());
         System.out.println(ticket1.getMaxBackpackWeight());
-        System.out.println(ticket1.getDateEvent());
+        System.out.println(ticket1.getMaxBackpackWeight());
+        System.out.println(ticket1.isPromo());
 
         System.out.println(ticket3.getId());
         System.out.println(ticket3.getTimeCreateTicket());
         System.out.println(ticket3.getMaxBackpackWeight());
         System.out.println(ticket3.getDateEvent());
+        System.out.println(ticket3.isPromo());
 
         System.out.println(ticket2.getId());
         System.out.println(ticket2.getTimeCreateTicket());
         System.out.println(ticket2.getMaxBackpackWeight());
         System.out.println(ticket2.getDateEvent());
+        System.out.println(ticket2.isPromo());
 
     }
 }

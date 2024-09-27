@@ -8,7 +8,7 @@ public class Ticket {
     private final LocalDateTime timeCreateTicket = LocalDateTime.now();                 // Local time when you buy your ticket.
     private LocalDateTime dateEvent;                                                    // Date when will be event.
     char stadiumSector;                                                                 // Sector where you will be on event.
-    boolean promo;                                                                      // This is the event kind of marketing promotion or not.
+    private boolean promo;                                                                      // This is the event kind of marketing promotion or not.
     private float maxBackpackWeight;                                                    // Max weight backpack on event according cod event.
 
 
@@ -50,5 +50,9 @@ public class Ticket {
 
     public LocalDateTime getDateEvent() {
         return dateEvent;
+    }
+
+    public boolean isPromo() {
+        return promo;
     }
 }
