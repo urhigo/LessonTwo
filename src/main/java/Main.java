@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         Ticket ticket1 = new Ticket();
-        Ticket ticket3 = new Ticket("Prime Hall", (short) 234, 'A');
+        Ticket ticket3 = new Ticket("Prime Hall", (short) 234, 'A', true);
         Ticket ticket2 = new Ticket();
 
         System.out.println(ticket1.getId());
