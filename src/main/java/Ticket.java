@@ -3,12 +3,12 @@ import java.time.LocalDateTime;
 public class Ticket {
 
     private final short id;                                                             // Unique code ticket. You get id when create new ticket. Max value 9999.
-    String concertHall;                                                                 // Name concert hall. Max length 10 symbols.
-    short eventCode;                                                                    // Unique code event. You get it code when buy ticket.
+    private String concertHall;                                                         // Name concert hall. Max length 10 symbols.
+    private short eventCode;                                                            // Unique code event. You get it code when buy ticket.
     private final LocalDateTime timeCreateTicket = LocalDateTime.now();                 // Local time when you buy your ticket.
     private LocalDateTime dateEvent;                                                    // Date when will be event.
-    char stadiumSector;                                                                 // Sector where you will be on event.
-    private boolean promo;                                                                      // This is the event kind of marketing promotion or not.
+    private char stadiumSector;                                                         // Sector where you will be on event.
+    private boolean promo;                                                              // This is the event kind of marketing promotion or not.
     private float maxBackpackWeight;                                                    // Max weight backpack on event according cod event.
 
 
@@ -54,5 +54,17 @@ public class Ticket {
 
     public boolean isPromo() {
         return promo;
+    }
+
+    public String getConcertHall() {
+        return concertHall;
+    }
+
+    public short getEventCode() {
+        return eventCode;
+    }
+
+    public char getStadiumSector() {
+        return stadiumSector;
     }
 }
