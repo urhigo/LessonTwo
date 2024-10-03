@@ -1,3 +1,7 @@
+package models;
+
+import services.TicketService;
+
 import java.time.LocalDateTime;
 
 public class Ticket {
@@ -7,7 +11,7 @@ public class Ticket {
     private short eventCode;                                                            // Unique code event. You get it code when buy ticket.
     private final LocalDateTime timeCreateTicket = LocalDateTime.now();                 // Local time when you buy your ticket.
     private LocalDateTime dateEvent;                                                    // Date when will be event.
-    private char stadiumSector;                                                         // Sector where you will be on event.
+    private Sector stadiumSector;                                                        // Sector where you will be on event.
     private boolean promo;                                                              // This is the event kind of marketing promotion or not.
     private float maxBackpackWeight;                                                    // Max weight backpack on event according cod event.
 
@@ -19,9 +23,9 @@ public class Ticket {
         this.id = count;
     }
 
-    public Ticket(String concertHall, short eventCode, char stadiumSector, boolean promo) {
+    public Ticket(String concertHall, short eventCode, Sector stadiumSector, boolean promo) {
         ++count;
-        if(new TicketService().controlTicketId(count) & new TicketService().controlEventCode(eventCode) & new TicketService().controlLengthNamePlace(concertHall) & new TicketService().controlInformationAboutSector(stadiumSector)) {
+        if(controlTicketId(count) & controlEventCode(eventCode) & controlLengthNamePlace(concertHall) & controlInformationAboutSector(stadiumSector)) {
             this.id = count;
             this.concertHall = concertHall;
             this.eventCode = eventCode;
@@ -64,7 +68,39 @@ public class Ticket {
         return eventCode;
     }
 
-    public char getStadiumSector() {
+    public Sector getStadiumSector() {
         return stadiumSector;
+    }
+
+    public boolean controlTicketId(short id) {
+        if (id > 9999) {
+            System.out.println("We don't have tickets");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean controlEventCode(short eventCode) {
+        if (eventCode > 999 || eventCode < 1) {
+            System.out.println("We don't have event with this code");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean controlInformationAboutSector(Sector sector){
+        if(sector != Sector.A & sector != Sector.B & sector != Sector.C){
+            System.out.println("We don't have this sector");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean controlLengthNamePlace(String namePlace){
+        if (namePlace.length() > 10){
+            System.out.println("Name place have more 10 symbols");
+            return false;
+        }
+        return true;
     }
 }
